@@ -1,5 +1,12 @@
 use crate::ram::Memory;
 
+/// Notes:
+///
+/// We can combine registers to form a 16-bit register, e.g. h and l can be
+/// combined to form HL
+///
+/// TODO: Figure out a nice way to read/write 16 bit registers, might want to
+/// implement methods somewhere
 struct Registers {
     a: u8,
     f: u8,
