@@ -1,4 +1,4 @@
-struct Memory {
+pub struct Memory {
     ram: [u8; 0xFFFF],
 }
 
