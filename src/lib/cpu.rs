@@ -18,7 +18,7 @@ struct Registers {
     l: u8,
 }
 
-enum Flags {
+enum Flag {
     Z = 1 << 0,
     N = 1 << 1,
     H = 1 << 2,
@@ -32,4 +32,18 @@ pub struct Cpu {
     memory: Memory,
     sp: u16,
     pc: u16,
+}
+
+impl Cpu {
+    fn set_flag(&mut self, flag: Flag, val: bool) {
+        if val {
+            self.registers.f |= flag as u8;
+        } else {
+            self.registers.f &= !(flag as u8);
+        }
+    }
+
+    fn is_flag_set(&self, flag: Flag) -> bool {
+        self.registers.f & (flag as u8) != 0
+    }
 }
